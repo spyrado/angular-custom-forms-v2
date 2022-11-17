@@ -1,0 +1,18 @@
+
+<!-- Para que o Input form rode perfeitamente o componente pai que está passando via Input o form -->
+<!-- Deve conter os mesmos nomes do formControlName de cada campo. -->
+<!-- Vantagens: podemos ter o controle sobre o form no componente pai, como desabilitar apenas o campo Nome -->
+<div *ngIf="form" [formGroup]="form">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input formControlName="name" type="text" class="form-control" id="nome">
+  </div>
+  <div class="mb-3">
+    <label for="sobrenome" class="form-label">Sobrenome</label>
+    <input formControlName="lastName" type="text" class="form-control" id="sobrenome">
+  </div>
+  <div class="mb-3">
+    <label for="data-de-nascimento" class="form-label">Data de nascimento</label>
+    <input formControlName="birthDate" type="text" class="form-control" id="data-de-nascimento">
+  </div>
+</div>

@@ -1,30 +1,26 @@
-<form>
+<form [formGroup]="form">
   <fieldset>
     <legend>Formulário do fornecedor</legend>
-    <div class="mb-3">
-      <label for="nome" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="nome" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-      <label for="sobrenome" class="form-label">Sobrenome</label>
-      <input type="text" class="form-control" id="sobrenome" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-      <label for="data-de-nascimento" class="form-label">Data de nascimento</label>
-      <input type="text" class="form-control" id="data-de-nascimento" aria-describedby="emailHelp">
-    </div>
+    <!-- Forma simples passando o form como input e la no componente ele tem as mesmas props do form -->
+    <!-- <app-opcao1-pessoa-form [form]="form"></app-opcao1-pessoa-form> -->
+    <app-opcao2-pessoa-form></app-opcao2-pessoa-form>
     <div class="mb-3">
       <label for="rg" class="form-label">RG</label>
-      <input type="text" class="form-control" id="rg" aria-describedby="emailHelp">
+      <input formControlName="rg" type="text" class="form-control" id="rg">
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input formControlName="hasCnh" type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Possui CNH?</label>
     </div>
     <div class="mb-3">
       <label for="cnh" class="form-label">CNH</label>
-      <input type="text" class="form-control" id="cnh" aria-describedby="emailHelp">
+      <input formControlName="cnh" type="text" class="form-control" id="cnh" di>
+      disabled: {{ form.get('cnh')?.disabled }}
     </div>
   </fieldset>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<pre>
+  {{ form.getRawValue() | json }}
+</pre>
