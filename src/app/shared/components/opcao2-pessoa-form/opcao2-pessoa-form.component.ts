@@ -15,13 +15,11 @@ export class Opcao2PessoaFormComponent implements OnInit {
     filho app-opcao2-pessoa-form que no caso se chama fornecedor.component ) e lá na classe pai ele vai pegar a instancia do FormGroup
   */
   // Artigo mt bom sobre o ControlContainer: https://desenvolvimento.shift.com.br/dividindo-formul%C3%A1rios-complexos-no-angular-com-controlcontainer-1b107d59c8be
-  constructor(private controlContainer: ControlContainer) { }
+  constructor(private controlContainer: ControlContainer) {}
 
   ngOnInit(): void {
-    // Como o form Group do componente pai possui os mesmos FormControls do html, o form pai vai funcionar corretamente.
-    this.form = this.controlContainer.control as FormGroup;
-
+    const formGroup = this.controlContainer.control as FormGroup;
+    this.form = formGroup;
     console.log(this.controlContainer.control);
   }
-
 }

@@ -1,8 +1,9 @@
-
-<!-- Para que o Input form rode perfeitamente o componente pai que está passando via Input o form -->
-<!-- Deve conter os mesmos nomes do formControlName de cada campo. -->
-<!-- Vantagens: podemos ter o controle sobre o form no componente pai, como desabilitar apenas o campo Nome -->
-<div [formGroup]="form">
+<!-- Vantagens: deixa o código limpo, se você precisar apenas de um form de visualização essa é uma ótima opção -->
+<!-- 
+  Desvantagens: usando a inversão de dependencias com viewProviders não temos a injeção de dependencia do ControlContainer, então não conseguimos manipular ele, se precisar manipular os dados
+  recomendo utilizar o ControlContainer via DI(Injeção de Dependencia ( no construtor mostro como utilizar ele no opcao2-pessoa-form ))
+ -->
+<div>
   <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>
     <input formControlName="name" type="text" class="form-control" id="nome">
