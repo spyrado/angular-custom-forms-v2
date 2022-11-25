@@ -3,23 +3,29 @@ import { ControlContainer, FormControl } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
 @Directive({
-  selector: '[appEnableOnCheck]',
+  selector: '[appEnableOnCheck1]',
 })
-export class EnableOnCheckDirective implements OnInit, OnDestroy {
+export class EnableOnCheck1Directive implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
-  @Input() checkBoxControlName?: string;
-  @Input('formControlName') controlName!: string;
+  @Input('appEnableOnCheck1') checkBoxControlName?: string;
+  @Input('formControlName') inputControlName!: string;
 
   constructor(private controlContainer: ControlContainer) {}
 
   ngOnInit(): void {
     if (this.checkBoxControlName) {
       const checkBoxForm = this.getControl(this.checkBoxControlName);
+      const controlForm = this.getControl(this.inputControlName);
+
+      if (!checkBoxForm.value) {
+        controlForm.disable();
+        controlForm.reset();
+      }
+
       checkBoxForm.valueChanges
         .pipe(takeUntil(this.destroy$))
         .subscribe((checked: Boolean) => {
-          const controlForm = this.getControl(this.controlName);
           if (checked) {
             controlForm.enable();
           } else {

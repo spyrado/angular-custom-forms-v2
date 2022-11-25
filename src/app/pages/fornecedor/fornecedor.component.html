@@ -4,7 +4,7 @@
     <!-- Forma simples passando o form como input e la no componente ele tem as mesmas props do form -->
     <!-- <app-opcao1-pessoa-form [form]="form"></app-opcao1-pessoa-form> -->
     <!-- <app-opcao2-pessoa-form></app-opcao2-pessoa-form> -->
-    <app-opcao3-pessoa-form></app-opcao3-pessoa-form>
+    <app-opcao4-pessoa-form></app-opcao4-pessoa-form>
     <div class="mb-3">
       <label for="rg" class="form-label">RG</label>
       <input formControlName="rg" type="text" class="form-control" id="rg" />
@@ -21,9 +21,8 @@
     <div class="mb-3">
       <label for="cnh" class="form-label">CNH</label>
       <input
-        appEnableOnCheck
+        appEnableOnCheck2="hasCnh"
         formControlName="cnh"
-        checkBoxControlName="hasCnh"
         type="text"
         class="form-control"
         id="cnh"

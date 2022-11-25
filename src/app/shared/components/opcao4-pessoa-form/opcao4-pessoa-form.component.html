@@ -1,0 +1,31 @@
+<!-- Vantagens: deixa o código limpo, se você precisar apenas de um form de visualização essa é uma ótima opção -->
+<!-- 
+  Desvantagens: usando a inversão de dependencias com viewProviders não temos a injeção de dependencia do ControlContainer, então não conseguimos manipular ele, se precisar manipular os dados
+  recomendo utilizar o ControlContainer via DI(Injeção de Dependencia ( no construtor mostro como utilizar ele no opcao2-pessoa-form ))
+ -->
+<div [formGroup]="form">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input formControlName="name" type="text" class="form-control" id="nome" />
+  </div>
+  <div class="mb-3">
+    <label for="sobrenome" class="form-label">Sobrenome</label>
+    <input
+      formControlName="lastName"
+      type="text"
+      class="form-control"
+      id="sobrenome"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="data-de-nascimento" class="form-label"
+      >Data de nascimento</label
+    >
+    <input
+      formControlName="birthDate"
+      type="text"
+      class="form-control"
+      id="data-de-nascimento"
+    />
+  </div>
+</div>
